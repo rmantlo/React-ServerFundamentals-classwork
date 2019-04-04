@@ -1,0 +1,10 @@
+.card-like{
+    padding: 1em;
+    background-color:lightgrey;
+    border-radius: 15px;
+    width: 11vw;
+    margin: 23vh auto;
+}
+.display-block{
+    display:block;
+}
