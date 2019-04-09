@@ -8,7 +8,7 @@ const Pie = (props) =>{
             <td>{props.pie.crust}</td>
             <td>{props.pie.timeToBake}</td>
             <td>{props.pie.servings}</td>
-            <td>{props.pie.rating}</td>
+            <td>{props.pie.ratings}</td>
         </tr>
     )
 }

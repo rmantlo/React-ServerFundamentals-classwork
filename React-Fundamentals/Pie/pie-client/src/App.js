@@ -6,11 +6,17 @@ import Pies from './components/Pies/Pies';
 
 class App extends Component {
   state = {
-    sessionToken: 8,
+    sessionToken: undefined,
   }
 
   viewConductor = () => {
     return this.state.sessionToken !== undefined ? <Pies /> : <Auth tokenHandler={this.storeSessionToken} />;
+  }
+
+  storeSessionToken = (token) => {
+    this.setState({
+      sessionToken: token
+    })
   }
 
   render() {

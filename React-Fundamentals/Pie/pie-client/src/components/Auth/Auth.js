@@ -15,6 +15,27 @@ class Auth extends React.Component {
             [event.target.name]: event.target.value
         });
     }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        let url = this.state.login ? 'http://localhost:3000/auth/signin' : 'http://localhost:3000/auth/signup';
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.props.tokenHandler(data.sessionToken) //app.js calls this class so it is the parent, so tokenHandler is a passed prop
+        })
+        .catch(err => console.log(err));
+    }
+
     loginToggle = (event) => {
         event.preventDefault();
         const login = this.state.login;
